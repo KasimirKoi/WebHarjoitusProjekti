@@ -1,0 +1,148 @@
+/* Määritellään värimutttujat, joita käytetään sivulla.
+Tämä tekee värimaailmasta yhtenäisen, koska sama väri käytetään useassa kohtaa. */
+:root {
+    --primary: #1f3c4a;
+    --primary-dark: #102a36;
+    --accent: #f4a261;
+    --background: #f3f6f7;
+    --surface: #ffffff;
+    --text: #1d1d1f;
+    --muted: #4c5a66;
+    --border: #dfe7ec;
+}
+/* Yleiset perusasetukset kaikille elementeille */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0; /* Poistetaan oletusmarginaali */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Käytetään modernia fonttia */
+    background: var(--background); /* Käytetään muuttujaa taustavärille */
+    color: var(--text);
+    line-height: 1.6; /* Parantaa luettavuutta lisäämällä riviväliä */
+}
+
+/* tekee yläosan tummansiniseksi ja lisää sisäistä tyhjää tilaa.*/
+header {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+}
+/* muotoilee “Tervetuloa Kuntosali Voimaan!” */
+header p {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.997);
+}
+
+/* muotoilee navigaatiolinkit vaakasuoraan ja poistaa listan pisteet. */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* muotoilee navigaatiolinkit valkoiseksi, hieman läpinäkyväksi, pyöristetyksi */
+nav a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s ease; /* Lisää pehmeän siirtymän hover-efektille */
+}
+
+/* muotoilee hover-efektin navigaatiolinkeille, jolloin taustaväri muuttuu oranssiksi ja teksti tummemmaksi. */
+nav a:hover {
+    background: var(--accent);
+    color: var(--primary-dark);
+}
+
+/* asettaa pääsisällölle enimmäisleveyden, keskittää sen ja lisää marginaalia. */
+main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* tekee sisältöalueista selkeät laatikot, joilla on reunat ja väliä. */
+section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+/* muotoilee otsikoiden värit, fontit ja rivivälin. */
+h1, h2, h3 {
+    color: var(--primary);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+/* asettaa pääotsikon koon ja alarivin välin. */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+/* asettaa alaotsikoiden koon ja välin. */
+h2 {
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+}
+
+/* määrittää tekstien värit ja koon lukemisen helpottamiseksi. */
+p,
+li {
+    color: var(--text);
+    font-size: 1rem;
+}
+
+/* muotoilee pääsisällön linkit painikkeen kaltaisesti. */
+main a {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary-dark);
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+/* muotoilee linkin hover-tilan, jolloin tausta muuttuu tummemmaksi. */
+main a:hover {
+    background: #e5914d;
+}
+
+/* tekee footerista tumman alueen, joka erottuu selvästi sivusta. */
+footer {
+    background: var(--primary-dark);
+    color: #ffffff;
+    padding: 2rem 1rem;
+}
+
+/* pitää footerin sisällön keskellä ja poistaa erillisen laatikon ulkoasun. */
+footer section {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+/* muotoilee footerin tekstin valkoiseksi kontrastin vuoksi. */
+footer h2,
+footer p {
+    color: #ffffff;
+}
