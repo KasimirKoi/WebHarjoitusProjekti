@@ -28,21 +28,28 @@ header {
     background: var(--primary);
     color: #ffffff;
     padding: 1.5rem 2rem;
+    text-align: center;
 }
 /* muotoilee “Tervetuloa Kuntosali Voimaan!” */
 header p {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1rem auto;
     font-size: 1.2rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.997);
+}
+/* asettaa navigaation enimmäisleveyden ja keskittää sen. */
+nav {
+max-width: 1100px;
+margin: 0 auto;
 }
 
 /* muotoilee navigaatiolinkit vaakasuoraan ja poistaa listan pisteet. */
 nav ul {
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 0.75rem;
 }
