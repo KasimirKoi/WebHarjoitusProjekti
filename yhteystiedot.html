@@ -16,42 +16,49 @@
             <ul>
                 <li><a href="index.html">Etusivu</a></li>
                 <li><a href="palvelut.html">Palvelut</a></li>
-                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+                <li><a href="yhteystiedot.html" aria-current="page">Yhteystiedot</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section>
+            <h1>Yhteystiedot</h1>
+            <p>Ota yhteyttä meihin tai varaa aika henkilökohtaiselle valmentajalle.</p>
+        </section>
+
+        <section class="section-plain">
             <h2>Valmentajat</h2>
 
-            <article>
-                <h3>Antti Niemi</h3>
-                <p>Personal trainer</p>
-                <p>Erityisosaaminen: voimaharjoittelu, lihasmassan kasvatus, kuntotestit.</p>
-                <p>Puhelin: 040 123 4567</p>
-                <p>Sähköposti: antti@kuntosalivoima.fi</p>
-            </article>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Antti Niemi</h3>
+                    <p>Personal trainer</p>
+                    <p>Erityisosaaminen: voimaharjoittelu, lihasmassan kasvatus, kuntotestit.</p>
+                    <p>Puhelin: 0401234567</p>
+                    <p>Sähköposti: antti@kuntosalivoima.fi</p>
+                </article>
 
-            <article>
-                <h3>Karoliina Korhonen</h3>
-                <p>Personal trainer</p>
-                <p>Erityisosaaminen: laihdutus, ryhmävalmennus, kestävyysharjoittelu.</p>
-                <p>Puhelin: 040 765 4321</p>
-                <p>Sähköposti: karoliina@kuntosalivoima.fi</p>
-            </article>
+                <article class="card">
+                    <h3>Karoliina Korhonen</h3>
+                    <p>Personal trainer</p>
+                    <p>Erityisosaaminen: laihdutus, ryhmävalmennus, kestävyysharjoittelu.</p>
+                    <p>Puhelin: 0407654321</p>
+                    <p>Sähköposti: karoliina@kuntosalivoima.fi</p>
+                </article>
 
-            <article>
-                <h3>Janne Virtanen</h3>
-                <p>Personal trainer</p>
-                <p>Erityisosaaminen: CrossFit, HIIT, palautuminen ja suorituskyky.</p>
-                <p>Puhelin: 040 987 6543</p>
-                <p>Sähköposti: janne@kuntosalivoima.fi</p>
-            </article>
+                <article class="card">
+                    <h3>Janne Virtanen</h3>
+                    <p>Personal trainer</p>
+                    <p>Erityisosaaminen: CrossFit, HIIT, palautuminen ja suorituskyky.</p>
+                    <p>Puhelin: 0409876543</p>
+                    <p>Sähköposti: janne@kuntosalivoima.fi</p>
+                </article>
+            </div>
         </section>
 
         <section>
-            <h2>Yhteystiedot</h2>
+            <h2>Kuntosalin yhteystiedot</h2>
             <p>Kuntosali Voima</p>
             <p>Osoite: Kuntosalintie 1, 00100 Oulu</p>
             <p>Puhelin: +358 123 456 789</p>
@@ -60,7 +67,30 @@
     </main>
 
     <footer>
-        <p>Kuntosali Voima</p>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h2>Kuntosali Voima</h2>
+                <p>Treenaa vahvaksi ja terveeksi.</p>
+            </div>
+
+            <div class="footer-column">
+                <h2>Sivut</h2>
+                <ul>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="palvelut.html">Palvelut</a></li>
+                    <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2>Yhteystiedot</h2>
+                <p>Kuntosalintie 1, 00100 Oulu</p>
+                <p>Puhelin: <a href="tel:+358123456789">+358123456789</a></p>
+                <p>Sähköposti: <a href="mailto:info@kuntosalivoima.fi">info@kuntosalivoima.fi</a></p>
+            </div>
+        </div>
+
+        <p class="footer-bottom">&copy; 2026 Kuntosali Voima</p>
     </footer>
 </body>
 

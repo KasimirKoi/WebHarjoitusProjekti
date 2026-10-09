@@ -1,6 +1,3 @@
-<!-- Harjoitustyön aiheen on kuntosali yrittäjän kotisivut. Työnhön tulee indek.html, joka on etusivu/pääsivu. 
- Lisäksi sivulle tulee linkit palvelut.html ja yhteystiedot.html sivuille -->
-<!-- Kuntosali Voima - Etusivu -->
 <!DOCTYPE html>
 <html lang="fi">
 
@@ -15,10 +12,9 @@
 <body>
     <header>
         <p>Tervetuloa Kuntosali Voimaan!</p>
-
         <nav>
             <ul>
-                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="index.html" aria-current="page">Etusivu</a></li>
                 <li><a href="palvelut.html">Palvelut</a></li>
                 <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
             </ul>
@@ -26,67 +22,87 @@
     </header>
 
     <main>
-        <!-- Paaesittely -->
-        <section>
+        <!-- Hero: leveä pääesittely -->
+        <section class="hero">
             <h1>Treenaa vahvaksi ja terveeksi Kuntosali Voimassa!</h1>
             <p>Kuntosali Voima tarjoaa monipuoliset treenimahdollisuudet kaiken tasoisille kuntoilijoille.</p>
             <a href="palvelut.html">Tutustu palveluihin</a>
         </section>
 
-        <!-- Kuntosalin esittely -->
-        <section>
-            <h2>Kuntosalin esittely</h2>
-            <p>Kuntosali Voima sijaitsee keskeisellä paikalla ja tarjoaa modernit laitteet sekä asiantuntevan
-                henkilökunnan.</p>
-            <p>Tavoitteenamme on tehdä harjoittelusta turvallista, tehokasta ja motivoivaa.</p>
-            <!-- Tähän mahdollisesti kuvia kuntosalista -->
-        </section>
+        <!-- Kaksi saraketta rinnakkain: esittely ja valmennuskehote -->
+        <div class="two-column">
+            <section>
+                <h2>Kuntosalin esittely</h2>
+                <p>Kuntosali Voima sijaitsee keskeisellä paikalla ja tarjoaa modernit laitteet sekä asiantuntevan
+                    henkilökunnan.</p>
+                <p>Tavoitteenamme on tehdä harjoittelusta turvallista, tehokasta ja motivoivaa.</p>
+                <!-- Tähän mahdollisesti kuvia kuntosalista -->
+            </section>
+
+            <!-- Personal trainer varaus -->
+            <section>
+                <h2>Tarvitsetko henkilökohtaista valmennusta?</h2>
+                <p>Meillä on kokenut ja asiantunteva henkilökohtainen valmentaja, joka auttaa sinua saavuttamaan
+                    tavoitteesi.</p>
+                <a href="yhteystiedot.html">Varaa henkilökohtainen valmennus</a>
+            </section>
+        </div>
 
         <!-- Palvelut -->
-        <section>
+        <section class="section-plain">
             <h2>Palvelut</h2>
-            <ul>
-                <li>
-                    <strong>Henkilökohtainen valmennus</strong>
-                    <p>Tarjoamme yksilöllistä ohjausta ja treeniohjelmia, jotka on räätälöity asiakkaan tavoitteiden ja
-                        tarpeiden mukaan.</p>
-                </li>
-                <li>
-                    <strong>Ryhmäliikuntatunnit</strong>
-                    <p>Monipuoliset ryhmäliikuntatunnit, kuten jooga, pilates, spinning ja HIIT, tarjoavat tehokasta
-                        treeniä ja yhteisöllisyyttä.</p>
-                </li>
-                <li>
-                    <strong>Sauna ja rentoutumisalue</strong>
-                    <p>Sauna ja rentoutumisalue tarjoavat relaxaation ja palautumisen mahdollisuuden.</p>
-                </li>
-                <li>
-                    <strong>Ravintoneuvonta</strong>
-                    <p>Asiantunteva ravintoneuvoja auttaa sinua saavuttamaan terveelliset ruokaplaneerit ja elämäntavan.
-                    </p>
-                </li>
-            </ul>
-        </section>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Henkilökohtainen valmennus</h3>
+                    <p>Yksilöllinen valmennus auttaa sinua saavuttamaan tavoitteesi turvallisesti ja tehokkaasti.</p>
+                </article>
 
-        <!-- Personal trainer varaus -->
-        <section>
-            <h2>Tarvitsetko henkilökohtaista valmennusta?</h2>
-            <p>Meillä on kokenut ja asiantunteva henkilökohtainen valmentaja, joka auttaa sinua saavuttamaan
-                tavoitteesi.</p>
-            <a href="yhteystiedot.html">Varaa henkilökohtainen valmennus</a>
+                <article class="card">
+                    <h3>Ryhmäliikuntatunnit</h3>
+                    <p>Monipuoliset ryhmäliikuntatunnit, kuten jooga, pilates, spinning ja HIIT-treeni, sopivat
+                        kaikentasoisille
+                        kuntoilijoille.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Sauna ja rentoutumisalue</h3>
+                    <p>Rentoudu treenin jälkeen huolellisesti suunnitellussa sauna- ja rentoutumisalueella.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Ravintoneuvonta</h3>
+                    <p>Asiantunteva ravintoneuvoja auttaa sinua suunnittelemaan ruokavalion, joka tukee treeniäsi ja
+                        terveellistä elämäntapaa.</p>
+                </article>
+            </div>
         </section>
     </main>
 
     <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h2>Kuntosali Voima</h2>
+                <p>Treenaa vahvaksi ja terveeksi.</p>
+            </div>
 
-        <!-- Yrityksen yhteystiedot -->
-        <section>
-            <h2>Yhteystiedot</h2>
-            <p>Kuntosali Voima</p>
-            <p>Osoite: Kuntosalintie 1, 00100 Oulu</p>
-            <p>Puhelin: +358123456789</p>
-            <p>Sähköposti: info@kuntosalivoima.fi</p>
-        </section>
+            <div class="footer-column">
+                <h2>Sivut</h2>
+                <ul>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="palvelut.html">Palvelut</a></li>
+                    <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2>Yhteystiedot</h2>
+                <p>Kuntosalintie 1, 00100 Oulu</p>
+                <p>Puhelin: <a href="tel:+358123456789">+358123456789</a></p>
+                <p>Sähköposti: <a href="mailto:info@kuntosalivoima.fi">info@kuntosalivoima.fi</a></p>
+            </div>
+        </div>
+
+        <p class="footer-bottom">&copy; 2026 Kuntosali Voima</p>
     </footer>
 </body>
 
