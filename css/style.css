@@ -40,6 +40,13 @@ header {
     color: #ffffff;
     padding: 1.5rem 2rem;
     text-align: center;
+    /*VAIHE 4 position ominaisuus*/
+    position: sticky;
+    /* header näkyvissä, kun sivua vieritetään */
+    top: 0;
+    /* header pysyy näytön yläreunassa */
+    z-index: 100;
+    /* header on muiden elementtien päällä */
 }
 
 /* muotoilee “Tervetuloa Kuntosali Voimaan!” */
@@ -298,4 +305,54 @@ footer p {
 /* Ruudukon sisällä väli tulee gapista, joten poistetaan section-säännön marginaali */
 .two-column section {
     margin-bottom: 0;
+}
+
+/* Valmentajakuvat korteissa */
+.trainer-img {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 1rem auto;
+}
+
+/* Videon asetukset */
+video {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    margin: 0 auto 1rem auto;
+    border-radius: 8px;
+}
+
+/* tekstien muotoilu videosektiossa */
+.video-section {
+    text-align: center;
+}
+
+/* Takaisin ylös -painike: pysyy kiinni näkymän oikeassa alakulmassa */
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 90;
+    background: var(--accent);
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(16, 42, 54, 0.3);
+}
+
+/* Takaisin ylös -painikkeen hover-efekti */
+.back-to-top:hover,
+.back-to-top:focus {
+    background: #e5914d;
+}
+
+/* smooth tekee vierityksestä pehmeän. */
+html {
+    scroll-behavior: smooth;
 }
