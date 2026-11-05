@@ -240,6 +240,7 @@ footer p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 /* Yksittäisen kortin muotoilu*/
@@ -355,4 +356,193 @@ video {
 /* smooth tekee vierityksestä pehmeän. */
 html {
     scroll-behavior: smooth;
+}
+
+/* OSIO 5: TAULUKKO */
+/* table-wrapper: leveä taulukko vierittyy vaakasuunnassa kapealla näytöllä eikä riko sivua */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* Taulukko täyttää koko leveyden. min-width estää solujen liiallisen kutistumisen,
+   ja border-collapse yhdistää solujen reunat yhdeksi viivaksi. */
+.schedule {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+}
+
+/* Taulukon otsikko (caption): taulukon yläpuolella, vasemmalla, harmaalla värillä */
+.schedule caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 700;
+    color: var(--muted);
+    padding-bottom: 0.75rem;
+}
+
+/* Kaikki solut: sama täyte, vasen tasaus ja ylös tasaus,
+   jolloin sisältö alkaa jokaisessa solussa samasta kohdasta */
+.schedule th,
+.schedule td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid var(--border);
+}
+
+/* Sarakeotsikot: tumma tausta ja valkoinen teksti */
+.schedule thead th {
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Riviotsikot (kellonajat): vaalea tausta, eikä aika katkea kahdelle riville */
+.schedule tbody th {
+    background: var(--background);
+    color: var(--primary);
+    white-space: nowrap;
+}
+
+/* Raidoitus: joka toisen rivin solut hieman eri värillä luettavuuden parantamiseksi */
+.schedule tbody tr:nth-child(even) td {
+    background: #f9fbfb;
+}
+
+/* Hover-efekti: rivi korostuu vaalean oranssina, kun hiiri on sen päällä */
+.schedule tbody tr:hover td {
+    background: #fdf0e4;
+}
+
+/* OSIO 5: LOMAKE MUOTOILU */
+/* Lomake: ryhmät allekkain */
+.booking-form fieldset {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 0 0 1.25rem 0;
+}
+
+/* Ryhmän otsikko (legend) */
+.booking-form legend {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    color: var(--primary);
+    padding: 0 0.5rem;
+}
+
+/* Sisäkkäinen ryhmä (radiopainikkeet) ilman omaa reunaa */
+.booking-form .inner-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+/* Yksi kenttä: label ja input allekkain */
+.form-field {
+    margin-bottom: 1rem;
+}
+
+/* Kaksi kenttää rinnakkain, kapealla näytöllä allekkain */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+/* Kenttien otsikot */
+.booking-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--primary);
+}
+
+/* Tekstikentät, valintalista ja tekstialue täyttävät koko leveyden */
+.booking-form input[type="text"],
+.booking-form input[type="email"],
+.booking-form input[type="tel"],
+.booking-form input[type="number"],
+.booking-form input[type="date"],
+.booking-form input[type="time"],
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+    background: var(--surface);
+    color: var(--text);
+}
+
+/* Liukusäädin täyttää leveyden */
+.booking-form input[type="range"] {
+    width: 100%;
+}
+
+/* Tekstialueen koon muuttaminen vain pystysuunnassa */
+.booking-form textarea {
+    resize: vertical;
+}
+
+/* Ohjetekstit kenttien alla */
+.booking-form small {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--muted);
+}
+
+/* Radiopainikkeet ja valintaruudut: label ja ruutu samalle riville */
+.booking-form .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+/* Validointi: reunus muuttuu vasta, kun käyttäjä on muokannut kenttää */
+.booking-form input:user-invalid,
+.booking-form select:user-invalid,
+.booking-form textarea:user-invalid {
+    border-color: #c0392b;
+    background: #fdf1f0;
+}
+
+.booking-form input:user-valid,
+.booking-form select:user-valid,
+.booking-form textarea:user-valid {
+    border-color: #2e8b57;
+}
+
+/* Painikkeet */
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.booking-form button {
+    padding: 0.8rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--primary-dark);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.booking-form button:hover,
+.booking-form button:focus {
+    background: #e5914d;
+}
+
+/* Toissijainen painike (tyhjennä): vaalea tausta */
+.booking-form .button-secondary {
+    background: var(--background);
+    border: 1px solid var(--border);
 }

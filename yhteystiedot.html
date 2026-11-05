@@ -12,7 +12,6 @@
 <body>
     <header>
         <p>Kuntosali Voima</p>
-
         <nav>
             <ul>
                 <li><a href="index.html">Etusivu</a></li>
@@ -61,6 +60,173 @@
                     <p>Sähköposti: janne@kuntosalivoima.fi</p>
                 </article>
             </div>
+        </section>
+
+        <!-- VAIHE 5:Henkilökohtaisen valmennuksen varauslomake -->
+        <section id="varaus">
+            <h2>Varaa henkilökohtainen valmennus</h2>
+            <p>Täytä lomake, niin valmentaja ottaa sinuun yhteyttä. Tähdellä (*) merkityt kentät ovat pakollisia.</p>
+
+            <!-- action="#" koska sivulla ei ole palvelinta, joka vastaanottaisi lomakkeen -->
+            <form class="booking-form" action="#" method="get">
+
+                <!-- Ryhmä 1: yhteystiedot -->
+                <fieldset>
+                    <legend>Yhteystiedot</legend>
+
+                    <!-- Etu- ja sukunimi vierekkäin -->
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="etunimi">Etunimi *</label>
+                            <!-- minlength/maxlength rajaavat pituuden, autocomplete auttaa selainta täyttämään kentän -->
+                            <input type="text" id="etunimi" name="etunimi" required minlength="2" maxlength="40"
+                                autocomplete="given-name">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="sukunimi">Sukunimi *</label>
+                            <input type="text" id="sukunimi" name="sukunimi" required minlength="2" maxlength="40"
+                                autocomplete="family-name">
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="sahkoposti">Sähköposti *</label>
+                        <!-- type="email" tarkistaa sähköpostin muodon automaattisesti -->
+                        <input type="email" id="sahkoposti" name="sahkoposti" required autocomplete="email"
+                            placeholder="nimi@esimerkki.fi">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="puhelin">Puhelinnumero *</label>
+                        <!-- pattern hyväksyy muodot 0401234567 ja +358401234567 (välilyönnit sallittu) -->
+                        <input type="tel" id="puhelin" name="puhelin" required autocomplete="tel"
+                            pattern="(\+358|0)[0-9 ]{6,12}"
+                            title="Anna suomalainen numero, esim. 0401234567 tai +358401234567"
+                            aria-describedby="puhelin-ohje">
+                        <small id="puhelin-ohje">Esim. 0401234567 tai +358401234567</small>
+                    </div>
+                </fieldset>
+
+                <!-- Ryhmä 2: valmennustoiveet -->
+                <fieldset>
+                    <legend>Valmennustoiveet</legend>
+
+                    <div class="form-field">
+                        <label for="valmentaja">Valmentaja *</label>
+                        <!-- Valintalista: tyhjä value pakottaa käyttäjän valitsemaan jotain -->
+                        <select id="valmentaja" name="valmentaja" required>
+                            <option value="">Valitse valmentaja</option>
+                            <option value="antti">Antti Niemi (voimaharjoittelu)</option>
+                            <option value="karoliina">Karoliina Korhonen (laihdutus, kestävyys)</option>
+                            <option value="janne">Janne Virtanen (CrossFit, HIIT)</option>
+                            <option value="ei_valia">Ei väliä</option>
+                        </select>
+                    </div>
+
+                    <!-- Radiopainikkeet: sama name, eri value, joten vain yksi voi olla valittuna -->
+                    <fieldset class="inner-fieldset">
+                        <legend>Tavoite *</legend>
+                        <label class="option"><input type="radio" name="tavoite" value="lihasmassa" required>
+                            Lihasmassan kasvatus</label>
+                        <label class="option"><input type="radio" name="tavoite" value="laihdutus"> Laihdutus</label>
+                        <label class="option"><input type="radio" name="tavoite" value="kestavyys">
+                            Kestävyyskunto</label>
+                        <label class="option"><input type="radio" name="tavoite" value="muu"> Muu</label>
+                    </fieldset>
+
+                      <!-- Kokemustaso radiopainikkeina: sama name, eri value, vain yksi voi olla valittuna -->
+                    <fieldset class="inner-fieldset">
+                        <legend>Kokemustaso *</legend>
+                        <label class="option"><input type="radio" name="kokemus" value="1" required>
+                            Aloittelija (ei aiempaa kokemusta)</label>
+                        <label class="option"><input type="radio" name="kokemus" value="2">
+                            Vähän kokemusta (alle vuosi)</label>
+                        <label class="option"><input type="radio" name="kokemus" value="3">
+                            Keskitaso (1–3 vuotta)</label>
+                        <label class="option"><input type="radio" name="kokemus" value="4">
+                            Kokenut (yli 3 vuotta)</label>
+                    </fieldset>
+
+                    <div class="form-field">
+                        <label for="treenikerrat">Treenikertoja viikossa *</label>
+                        <!-- Numerokenttä: min ja max rajaavat sallitut arvot -->
+                        <input type="number" id="treenikerrat" name="treenikerrat" required min="1" max="7" value="3">
+                    </div>
+                </fieldset>
+
+                <!-- Ryhmä 3: ajankohta -->
+                <fieldset>
+                    <legend>Toivottu ajankohta</legend>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="toivottu_pvm">Päivämäärä *</label>
+                            <!-- min estää menneen päivämäärän valinnan (päivitä arvo tarvittaessa) -->
+                            <input type="date" id="toivottu_pvm" name="toivottu_pvm" required min="2026-11-06">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="toivottu_aika">Kellonaika *</label>
+                            <!-- Valintalista: sallitut ajat on listattu käsin, joten muita minuutteja ei voi valita -->
+                            <select id="toivottu_aika" name="toivottu_aika" required>
+                                <option value="">Valitse kellonaika</option>
+                                <option value="06:00">06:00</option>
+                                <option value="06:30">06:30</option>
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Ryhmä 4: lisätiedot ja suostumus -->
+                <fieldset>
+                    <legend>Lisätiedot</legend>
+
+                    <div class="form-field">
+                        <label for="lisatiedot">Kerro tavoitteistasi tai rajoitteistasi</label>
+                        <!-- Pitkä teksti: maxlength rajaa pituuden -->
+                        <textarea id="lisatiedot" name="lisatiedot" rows="4" maxlength="500"
+                            placeholder="Esim. vanha polvivamma, aiempi treenitausta..."></textarea>
+                    </div>
+
+                    <!-- Valinnainen valintaruutu -->
+                    <label class="option"><input type="checkbox" name="uutiskirje" value="kylla"> Haluan
+                        vastaanottaa Kuntosali Voiman uutiskirjeen</label>
+
+                    <!-- Pakollinen valintaruutu: lomaketta ei voi lähettää ilman valintaa -->
+                    <label class="option"><input type="checkbox" name="suostumus" value="kylla" required> Hyväksyn
+                        yhteystietojeni käsittelyn varausta varten *</label>
+                </fieldset>
+
+                <!-- Painikkeet: submit lähettää lomakkeen, reset tyhjentää kentät -->
+                <div class="form-actions">
+                    <button type="submit">Lähetä varaus</button>
+                    <button type="reset" class="button-secondary">Tyhjennä lomake</button>
+                </div>
+            </form>
+            <!-- VAIHE 5: Henkilökohtaisen valmennuksen varauslomake (päättyy tähän) -->
         </section>
 
         <section>
