@@ -9,11 +9,20 @@ Tämä tekee värimaailmasta yhtenäisen, koska sama väri käytetään useassa 
     --text: #1d1d1f;
     --muted: #4c5a66;
     --border: #dfe7ec;
+    --border-strong: #6b7c88;
+    --content-width: 1100px;
 }
 
 /* Yleiset perusasetukset kaikille elementeille */
 * {
     box-sizing: border-box;
+}
+
+/*Kuvat ja videot eivät ylitä vanhemman elementin leveyttä, ja niiden korkeus skaalautuu automaattisesti. */
+img,
+video {
+    max-width: 100%;
+    height: auto;
 }
 
 body {
@@ -59,7 +68,7 @@ header p {
 
 /* asettaa navigaation enimmäisleveyden ja keskittää sen. */
 nav {
-    max-width: 1100px;
+    max-width: var(--content-width);
     margin: 0 auto;
 }
 
@@ -101,7 +110,7 @@ nav a[aria-current="page"] {
 
 /* asettaa pääsisällölle enimmäisleveyden, keskittää sen ja lisää marginaalia. */
 main {
-    max-width: 1100px;
+    max-width: var(--content-width);
     width: 100%;
     /* Tarvitaan, jotta main ei kutistu sisällön levyiseksi flex-sarakkeessa */
     margin: 2rem auto;
@@ -127,6 +136,7 @@ h3 {
     font-family: Georgia, "Times New Roman", serif;
     line-height: 1.2;
     margin-top: 0;
+    overflow-wrap: break-word;
 }
 
 /* asettaa pääotsikon koon ja alarivin välin. */
@@ -146,6 +156,7 @@ p,
 li {
     color: var(--text);
     font-size: 1rem;
+    overflow-wrap: anywhere;
 }
 
 /* muotoilee pääsisällön linkit painikkeen kaltaisesti. */
@@ -178,7 +189,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    max-width: 1100px;
+    max-width: var(--content-width);
     margin: 0 auto;
 }
 
@@ -194,6 +205,7 @@ footer {
 
 .footer-column p {
     margin: 0 0 0.4rem 0;
+    overflow-wrap: anywhere;
 }
 
 /* Linkkilista ilman luettelomerkkejä */
@@ -221,7 +233,7 @@ footer a:focus {
 
 /* Alin rivi: erotinviiva ja keskitetty teksti */
 .footer-bottom {
-    max-width: 1100px;
+    max-width: var(--content-width);
     margin: 2rem auto 0 auto;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -238,7 +250,7 @@ footer p {
 /*Korttiruudukko: Grid jakaa kortit automaattisesti riveihin ja sarakkeisiin.*/
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -264,6 +276,11 @@ footer p {
 .card p {
     margin: 0;
     color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.footer-column p {
+    overflow-wrap: anywhere;
 }
 
 /* Poistaa etusivun taustan, jolloin grid ei ole laatikon sisällä */
@@ -298,7 +315,7 @@ footer p {
    Kapealla näytöllä sarakkeet putoavat allekkain.*/
 .two-column {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: 1.5rem;
     margin-bottom: 1.5rem;
 }
@@ -422,6 +439,7 @@ html {
     border-radius: 8px;
     padding: 1rem 1.25rem;
     margin: 0 0 1.25rem 0;
+    min-width: 0;
 }
 
 /* Ryhmän otsikko (legend) */
@@ -447,7 +465,7 @@ html {
 /* Kaksi kenttää rinnakkain, kapealla näytöllä allekkain */
 .form-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
     gap: 1rem;
 }
 
@@ -470,7 +488,7 @@ html {
 .booking-form textarea {
     width: 100%;
     padding: 0.65rem 0.8rem;
-    border: 2px solid var(--border);
+    border: 2px solid var(--border-strong);
     border-radius: 8px;
     font: inherit;
     background: var(--surface);
@@ -502,6 +520,12 @@ html {
     font-weight: 400;
     color: var(--text);
     margin-bottom: 0.5rem;
+}
+
+/* Ruutu ei kutistu pitkän tekstin vieressä ja asettuu tekstin ensimmäisen rivin kohdalle */
+.booking-form .option input {
+    flex-shrink: 0;
+    margin-top: 0.35rem;
 }
 
 /* Validointi: reunus muuttuu vasta, kun käyttäjä on muokannut kenttää */
@@ -545,4 +569,86 @@ html {
 .booking-form .button-secondary {
     background: var(--background);
     border: 1px solid var(--border);
+}
+
+/* ===== VAIHE 6: RESPONSIIVISUUS (media queryt) ===== */
+
+/* Suuri näyttö: leveämpi sisältöalue ja hieman suurempi pääotsikko */
+@media (min-width: 1200px) {
+    :root {
+        --content-width: 1200px;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Pieni näyttö (puhelin): kompaktimmat välit ja pienemmät otsikot */
+@media (max-width: 600px) {
+    header {
+        padding: 1rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+    }
+
+    nav ul {
+        gap: 0.6rem;
+    }
+
+    nav a {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    main {
+        margin: 1rem auto;
+        padding: 0 0.75rem;
+    }
+
+    section {
+        padding: 1.25rem 1rem;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .card {
+        padding: 1.25rem 1rem;
+    }
+
+    .booking-form fieldset {
+        padding: 0.75rem;
+    }
+
+    /* Painikkeet koko leveydelle, jolloin ne ovat helppo painaa */
+    .booking-form button {
+        width: 100%;
+    }
+
+    .footer-content {
+        gap: 1.5rem;
+    }
+
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
 }
