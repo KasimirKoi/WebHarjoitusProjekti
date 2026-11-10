@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- Sivun yläosa: otsikko ja päävalikko nykyinen sivu merkitty aria-current-attribuutilla -->
     <header>
         <p>Kuntosali Voima</p>
         <nav aria-label="Päävalikko">
@@ -20,17 +21,20 @@
             </ul>
         </nav>
     </header>
-
+    
+    <!-- Sivun johdanto -->
     <main>
         <section>
             <h1>Yhteystiedot</h1>
             <p>Ota yhteyttä meihin tai varaa aika henkilökohtaiselle valmentajalle.</p>
         </section>
-
+        
+        <!-- Valmentajien esittelykortit -->
         <section class="section-plain">
             <h2>Valmentajat</h2>
 
-            <div class="card-grid">
+            <div class="card-grid card-grid-3">
+                <!-- Valmentajakortti: kuva, nimi, erityisosaaminen ja yhteystiedot -->
                 <article class="card">
                     <img src="kuvat/antti_niemi.svg" alt="Antti Niemi" class="trainer-img" width="200" height="400">
                     <h3>Antti Niemi</h3>
@@ -228,7 +232,8 @@
             </form>
             <!-- VAIHE 5: Henkilökohtaisen valmennuksen varauslomake (päättyy tähän) -->
         </section>
-
+        
+        <!-- Kuntosalin yleiset yhteystiedot -->
         <section>
             <h2>Kuntosalin yhteystiedot</h2>
             <p>Kuntosali Voima</p>
@@ -237,7 +242,7 @@
             <p>Sähköposti: info@kuntosalivoima.fi</p>
         </section>
     </main>
-
+    <!-- Alaosa: yhteenveto, sivukartta ja yhteystiedot -->
     <footer>
         <div class="footer-content">
             <div class="footer-column">
