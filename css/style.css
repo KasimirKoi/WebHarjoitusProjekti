@@ -283,10 +283,6 @@ footer p {
     overflow-wrap: anywhere;
 }
 
-.footer-column p {
-    overflow-wrap: anywhere;
-}
-
 /* Poistaa etusivun taustan, jolloin grid ei ole laatikon sisällä */
 .section-plain {
     background: transparent;
@@ -487,7 +483,6 @@ html {
 .booking-form input[type="tel"],
 .booking-form input[type="number"],
 .booking-form input[type="date"],
-.booking-form input[type="time"],
 .booking-form select,
 .booking-form textarea {
     width: 100%;
@@ -497,11 +492,6 @@ html {
     font: inherit;
     background: var(--surface);
     color: var(--text);
-}
-
-/* Liukusäädin täyttää leveyden */
-.booking-form input[type="range"] {
-    width: 100%;
 }
 
 /* Tekstialueen koon muuttaminen vain pystysuunnassa */
